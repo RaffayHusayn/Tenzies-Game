@@ -7,6 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+h2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 40px;
   font-weight: 800;
