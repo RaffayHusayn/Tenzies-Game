@@ -1,8 +1,9 @@
 import "./App.css";
 import Dice from "./components/Dice";
+import { useState } from "react";
 
 function App() {
-  const [dices, setDices] = allDiceNumber();
+  const [dices, setDices] = useState(allDiceNumber());
   function randomNumberFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
