@@ -1,6 +1,7 @@
 import Dice from "./Dice";
 import { useState } from "react";
 import "../styles/DiceContainer.css";
+import { nanoid } from "nanoid";
 
 function DiceContainer() {
   const [dices, setDices] = useState(allDiceNumber());
@@ -25,8 +26,8 @@ function DiceContainer() {
   return (
     <div className="dice-container">
       <div className="dice-grid">
-        {dices.map((diceNumber, index) => (
-          <Dice key={index} value={diceNumber} />
+        {dices.map((diceNumber) => (
+          <Dice key={nanoid()} value={diceNumber} />
         ))}
       </div>
       <button className="roll-btn" onClick={rollDices}>
