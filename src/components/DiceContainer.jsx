@@ -10,9 +10,14 @@ function DiceContainer() {
   }
 
   function rollDices() {
-    setDices(() => {
-      return allDiceNumber();
-    });
+    setDices(allDiceNumber());
+  }
+
+  function holdDice(id, value) {
+    const newDices = dices.map((dice) =>
+      dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice
+    );
+    setDices(newDices);
   }
 
   function allDiceNumber() {
@@ -20,7 +25,7 @@ function DiceContainer() {
     for (let i = 0; i < 10; i++) {
       const diceObj = {
         value: randomNumberFromInterval(1, 6),
-        isHeld: true,
+        isHeld: false,
         id: nanoid(),
       };
       allDiceArray.push(diceObj);
@@ -33,7 +38,13 @@ function DiceContainer() {
     <div className="dice-container">
       <div className="dice-grid">
         {dices.map((dice) => (
-          <Dice key={dice.id} value={dice.value} isHeld={dice.isHeld} />
+          <Dice
+            key={dice.id}
+            id={dice.id}
+            value={dice.value}
+            isHeld={dice.isHeld}
+            holdDice={holdDice}
+          />
         ))}
       </div>
       <button className="roll-btn" onClick={rollDices}>
