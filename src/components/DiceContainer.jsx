@@ -69,7 +69,7 @@ function DiceContainer() {
         ))}
       </div>
       <button className="roll-btn" onClick={rollDices}>
-        Roll
+        {tenzies ? "New Game" : "Roll"}
       </button>
     </div>
   );
