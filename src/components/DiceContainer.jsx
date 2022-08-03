@@ -73,7 +73,7 @@ function DiceContainer() {
           />
         ))}
       </div>
-      {tenzies ? (
+      {/* {tenzies ? (
         <button className="roll-btn" onClick={newGame}>
           New Game
         </button>
@@ -81,7 +81,10 @@ function DiceContainer() {
         <button className="roll-btn" onClick={rollDices}>
           Roll
         </button>
-      )}
+      )} */}
+      <button className="roll-btn" onClick={tenzies ? newGame : rollDices}>
+        {tenzies ? "New Game" : "Roll"}
+      </button>
       {tenzies && <Confetti />}
     </div>
   );
