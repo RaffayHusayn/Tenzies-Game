@@ -1,10 +1,24 @@
 import Dice from "./Dice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/DiceContainer.css";
 import { nanoid } from "nanoid";
 
 function DiceContainer() {
   const [dices, setDices] = useState(allDiceNumber());
+  const [tenzies, setTenzies] = useState(false);
+
+  //runs whenever we change anything in the dice state by either rolling new dices or holding a dice
+  useEffect(() => {
+    const isGameWon = dices.every(
+      (dice) => dice.value === dices[0].value && dice.isHeld === true
+    );
+    setTenzies(isGameWon);
+  }, [dices]);
+
+  useEffect(() => {
+    tenzies ? console.log("game is won") : console.log("game is not yet won");
+  }, [tenzies]);
+
   function randomNumberFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
