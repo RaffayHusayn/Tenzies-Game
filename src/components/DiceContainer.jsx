@@ -32,6 +32,10 @@ function DiceContainer() {
     );
   }
 
+  function newGame() {
+    setDices(allDiceNumber);
+  }
+
   function holdDice(id, value) {
     const newDices = dices.map((dice) =>
       dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice
@@ -69,9 +73,15 @@ function DiceContainer() {
           />
         ))}
       </div>
-      <button className="roll-btn" onClick={rollDices}>
-        {tenzies ? "New Game" : "Roll"}
-      </button>
+      {tenzies ? (
+        <button className="roll-btn" onClick={newGame}>
+          New Game
+        </button>
+      ) : (
+        <button className="roll-btn" onClick={rollDices}>
+          Roll
+        </button>
+      )}
       {tenzies && <Confetti />}
     </div>
   );
