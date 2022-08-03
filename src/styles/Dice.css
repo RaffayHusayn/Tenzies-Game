@@ -14,4 +14,9 @@ h2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 40px;
   font-weight: 800;
+  color: #0b2434;
+}
+
+.dice-held {
+  background-color: #59e391;
 }
