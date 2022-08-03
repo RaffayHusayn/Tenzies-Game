@@ -20,15 +20,18 @@ function DiceContainer() {
     setDices(newDices);
   }
 
+  function generateDice() {
+    return {
+      value: randomNumberFromInterval(1, 6),
+      isHeld: false,
+      id: nanoid(),
+    };
+  }
+
   function allDiceNumber() {
     const allDiceArray = [];
     for (let i = 0; i < 10; i++) {
-      const diceObj = {
-        value: randomNumberFromInterval(1, 6),
-        isHeld: false,
-        id: nanoid(),
-      };
-      allDiceArray.push(diceObj);
+      allDiceArray.push(generateDice());
     }
     return allDiceArray;
   }
