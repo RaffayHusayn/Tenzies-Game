@@ -2,6 +2,7 @@ import Dice from "./Dice";
 import { useEffect, useState } from "react";
 import "../styles/DiceContainer.css";
 import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
 
 function DiceContainer() {
   const [dices, setDices] = useState(allDiceNumber());
@@ -71,6 +72,7 @@ function DiceContainer() {
       <button className="roll-btn" onClick={rollDices}>
         {tenzies ? "New Game" : "Roll"}
       </button>
+      {tenzies && <Confetti />}
     </div>
   );
 }
