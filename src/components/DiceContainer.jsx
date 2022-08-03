@@ -10,7 +10,11 @@ function DiceContainer() {
   }
 
   function rollDices() {
-    setDices(allDiceNumber());
+    setDices((prevDices) =>
+      prevDices.map((prevDice) => {
+        return prevDice.isHeld === true ? prevDice : generateDice();
+      })
+    );
   }
 
   function holdDice(id, value) {
