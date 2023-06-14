@@ -5,7 +5,7 @@ import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 import { Counter } from "./Counter";
 
-function DiceContainer({addCounter, resetCounter}) {
+function DiceContainer({ addCounter, resetCounter }) {
   const [dices, setDices] = useState(allDiceNumber());
   const [tenzies, setTenzies] = useState(false);
 
@@ -18,11 +18,11 @@ function DiceContainer({addCounter, resetCounter}) {
   }, [dices]);
 
   useEffect(() => {
-    if(tenzies){
-      resetCounter()
-      console.log("game is won")
-    }else{
-      console.log("game is not yet won")
+    if (tenzies) {
+      resetCounter();
+      console.log("game is won");
+    } else {
+      console.log("game is not yet won");
     }
   }, [tenzies]);
 
@@ -36,7 +36,7 @@ function DiceContainer({addCounter, resetCounter}) {
         return prevDice.isHeld === true ? prevDice : generateDice();
       })
     );
-    addCounter()
+    addCounter();
   }
 
   function newGame() {
@@ -80,15 +80,6 @@ function DiceContainer({addCounter, resetCounter}) {
           />
         ))}
       </div>
-      {/* {tenzies ? (
-        <button className="roll-btn" onClick={newGame}>
-          New Game
-        </button>
-      ) : (
-        <button className="roll-btn" onClick={rollDices}>
-          Roll
-        </button>
-      )} */}
       <button className="roll-btn" onClick={tenzies ? newGame : rollDices}>
         {tenzies ? "New Game" : "Roll"}
       </button>
