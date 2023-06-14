@@ -1,0 +1,22 @@
+
+.counter{
+    background: white;
+    border: solid 10px rgb(101, 203, 205);
+    border-radius: 10px;
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+
+}
+
+.counter-text{
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 60px;
+  font-weight: 800;
+  color: #0b2434;
+}

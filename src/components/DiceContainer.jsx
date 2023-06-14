@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import "../styles/DiceContainer.css";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
+import { Counter } from "./Counter";
 
-function DiceContainer() {
+function DiceContainer({addCounter, resetCounter}) {
   const [dices, setDices] = useState(allDiceNumber());
   const [tenzies, setTenzies] = useState(false);
 
@@ -17,7 +18,12 @@ function DiceContainer() {
   }, [dices]);
 
   useEffect(() => {
-    tenzies ? console.log("game is won") : console.log("game is not yet won");
+    if(tenzies){
+      resetCounter()
+      console.log("game is won")
+    }else{
+      console.log("game is not yet won")
+    }
   }, [tenzies]);
 
   function randomNumberFromInterval(min, max) {
@@ -30,6 +36,7 @@ function DiceContainer() {
         return prevDice.isHeld === true ? prevDice : generateDice();
       })
     );
+    addCounter()
   }
 
   function newGame() {
